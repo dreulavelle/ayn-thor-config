@@ -20,3 +20,14 @@ Sideloaded apps (emulators, Cocoon, GameNative) don't auto-update — Obtainium 
 For DMCA-prone emulators (Switch especially), always point Obtainium at the developer's own git host, never a GitHub mirror.
 
 _Last updated: 
+
+## Installed extras (AYN Thor community apps)
+- **Mjolnir** v0.2.7a — Home-button automation; routes frontends to top/bottom/both screen. Source: https://github.com/blacksheepmvp/mjolnir
+- **Bifrost** v1.1.1 — RGB LED controller w/ Ambilight (samples screen colors). Source: https://github.com/Pollux-MoonBench/Bifrost
+
+> Add these two URLs in Obtainium (Add App -> paste URL) so they auto-update too.
+
+## Backups captured (on PC, C:\Users\dreul\thor_backups)
+- `saves/ps2-nethersx2/` — Dark Cloud 2 + KH2 + others (PS2 memcards & states)
+- `eden-keys/` — Eden prod.keys + title.keys (Switch). Firmware/nand (23 GB) left on device.
+- `apks/` — Cocoon, GameNative, Obtainium, Mjolnir, Bifrost installers
