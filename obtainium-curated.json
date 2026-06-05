@@ -241,11 +241,11 @@
       "pendingRepoRenameUrl": null
     },
     {
-      "id": "me.magnum.melonds",
+      "id": "me.magnum.melondualds",
       "url": "https://github.com/SapphireRhodonite/melonDS-android",
       "author": "SapphireRhodonite",
-      "name": "melonDS",
-      "installedVersion": "0.5.0",
+      "name": "MelonDualDS",
+      "installedVersion": "0.6.1",
       "latestVersion": "0.6.1",
       "apkUrls": "[[\"MelonDualDS-0.6.1.apk\",\"https://api.github.com/repos/SapphireRhodonite/melonDS-android/releases/assets/377244358\"]]",
       "otherAssetUrls": "[[\"0.6.1.tar.gz\",\"https://api.github.com/repos/SapphireRhodonite/melonDS-android/tarball/0.6.1\"],[\"0.6.1.zip\",\"https://api.github.com/repos/SapphireRhodonite/melonDS-android/zipball/0.6.1\"]]",
