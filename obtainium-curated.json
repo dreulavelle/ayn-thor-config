@@ -1,6 +1,28 @@
 {
   "apps": [
     {
+      "id": "emu.x360.mobile",
+      "url": "https://github.com/Ashnar2602/X360-Mobile---OFFICIAL",
+      "author": "Ashnar2602",
+      "name": "X360 Mobile",
+      "installedVersion": "v0.5.2",
+      "latestVersion": "v0.5.2",
+      "apkUrls": "[[\"X360_0.5.2_public.apk\",\"https://github.com/Ashnar2602/X360-Mobile---OFFICIAL/releases/download/v0.5.2/X360_0.5.2_public.apk\"]]",
+      "otherAssetUrls": "[]",
+      "preferredApkIndex": 0,
+      "additionalSettings": "{\"includePrereleases\":false,\"fallbackToOlderReleases\":true,\"filterReleaseTitlesByRegEx\":\"\",\"filterReleaseNotesByRegEx\":\"\",\"verifyLatestTag\":false,\"sortMethodChoice\":\"date\",\"useLatestAssetDateAsReleaseDate\":false,\"releaseTitleAsVersion\":false,\"trackOnly\":false,\"versionExtractionRegEx\":\"\",\"matchGroupToUse\":\"\",\"versionDetection\":true,\"releaseDateAsVersion\":false,\"useVersionCodeAsOSVersion\":false,\"apkFilterRegEx\":\"public\",\"invertAPKFilter\":false,\"autoApkFilterByArch\":true,\"appName\":\"X360 Mobile\",\"appAuthor\":\"Ashnar2602\",\"shizukuPretendToBeGooglePlay\":false,\"allowInsecure\":false,\"exemptFromBackgroundUpdates\":false,\"skipUpdateNotifications\":false,\"about\":\"Experimental Xbox 360 emulator (Xenia-based) for Android\",\"refreshBeforeDownload\":false,\"includeZips\":false,\"zippedApkFilterRegEx\":\"\"}",
+      "lastUpdateCheck": null,
+      "pinned": false,
+      "categories": [
+        "Emulator"
+      ],
+      "releaseDate": null,
+      "changeLog": null,
+      "overrideSource": "GitHub",
+      "allowIdChange": false,
+      "pendingRepoRenameUrl": null
+    },
+    {
       "id": "dev.imranr.obtainium",
       "url": "https://github.com/ImranR98/Obtainium",
       "author": "ImranR98",

@@ -1,0 +1,32 @@
+{
+  "databaseVersion": 14,
+  "revisionNumber": 1,
+  "platform": {
+    "name": "Microsoft Xbox 360",
+    "uniqueId": "xbox360",
+    "shortname": "xbox360",
+    "description": null,
+    "acceptedFilenameRegex": "^(.*)\\.(?:iso|xex|zar|zip|7z)$",
+    "scraperSourceList": [],
+    "boxArtAspectRatioId": 4,
+    "useCustomBoxArtAspectRatio": false,
+    "customBoxArtAspectRatio": null,
+    "screenAspectRatioId": 2,
+    "useCustomScreenAspectRatio": false,
+    "customScreenAspectRatio": null,
+    "retroAchievementsConsoleIdList": [],
+    "extra": ""
+  },
+  "playerList": [
+    {
+      "name": "X360 Mobile",
+      "uniqueId": "xbox360.emu.x360.mobile",
+      "description": "X360 Mobile Emulator",
+      "acceptedFilenameRegex": "^(.*)\\.(?:iso|xex|zar|zip|7z)$",
+      "amStartArguments": "-n emu.x360.mobile/emu.x360.mobile.X360MobileGameLaunchActivity\n-a android.intent.action.VIEW\n-d {file.uri}",
+      "killPackageProcesses": false,
+      "killPackageProcessesWarning": true,
+      "extra": ""
+    }
+  ]
+}
