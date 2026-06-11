@@ -10,6 +10,8 @@ Sideloaded apps don't auto-update. [Obtainium](https://github.com/ImranR98/Obtai
 |---|---|
 | `obtainium.json` | Full Obtainium app list (20 apps) |
 | `cocoon/xbox360-platform.json` | Custom Cocoon platform: Xbox 360 via X360 Mobile |
+| `cocoon/psvita-platform.json` | Custom Cocoon platform: PS Vita via Vita3K or EmuCoreV |
+| `cocoon/ps3-platform.json` | Custom Cocoon platform: PS3 via RPCSX |
 
 ## Import
 
@@ -29,7 +31,7 @@ Apps already on the device are recognized by package id; everything else shows a
 | [DuckStation](https://github.com/stenzek/duckstation) | PS1 | Mirror | Official Android APK isn't published on GitHub releases; tracked via community mirror |
 | [Eden](https://git.eden-emu.dev/eden-emu/eden) | Switch | Dev-hosted Forgejo | See [source durability](#source-durability) below. `optimized` build filtered for the Thor's SoC |
 | [EmuCoreV](https://github.com/sashkinbro/EmuCoreV) | PS Vita | GitHub | Custom UI over a Vita3K core; standard (non-parallel) build |
-| [MelonDualDS](https://github.com/SapphireRhodonite/melonDS-android) | DS | GitHub | Dual-screen fork — see [notes](#melondualds--ds-on-two-screens) below |
+| [melonDS](https://github.com/rafaelvcaetano/melonDS-android) | DS | GitHub | Native dual-screen support since 2.0.0 — see [notes](#melonds--ds-on-two-screens) below |
 | [NetherSX2 Classic](https://github.com/Trixarian/NetherSX2-classic) | PS2 | GitHub | AetherSX2 continuation |
 | [PPSSPP](https://www.ppsspp.org/download) | PSP | Official site | |
 | [RetroArch](https://buildbot.libretro.com/stable) | Multi | libretro buildbot | AArch64 build |
@@ -49,14 +51,11 @@ Apps already on the device are recognized by package id; everything else shows a
 | [AdrenoToolsDrivers](https://github.com/K11MCH1/AdrenoToolsDrivers) | GPU drivers | GitHub | Track-only: notifies of new Adreno driver releases, installed manually inside each emulator |
 | [Obtainium](https://github.com/ImranR98/Obtainium) | App updater | GitHub | Updates itself |
 
-## MelonDualDS — DS on two screens
+## melonDS — DS on two screens
 
-The official [melonDS Android](https://github.com/rafaelvcaetano/melonDS-android) app doesn't drive both Thor screens. [MelonDualDS](https://github.com/SapphireRhodonite/melonDS-android) is the community fork built for dual-screen devices (AYN Thor, AYANEO Pocket DS) and is the version recommended by the [Retro Game Corps dual-screen guide](https://retrogamecorps.com/2025/10/27/dual-screen-android-handheld-guide/).
+The official [melonDS Android](https://github.com/rafaelvcaetano/melonDS-android) app supports dual-screen devices natively since **2.0.0** (April 2026) — the dual-screen work from the community [MelonDualDS fork](https://github.com/SapphireRhodonite/melonDS-android) was upstreamed, with the fork author credited and AYN providing test devices. This config tracks the official app.
 
-Two things worth knowing:
-
-- **It's a separate app.** Since v0.6.1 the fork uses its own package id (`me.magnum.melondualds`), so it installs alongside official melonDS rather than replacing it, and has standalone RetroAchievements support.
-- **Releases ship as prereleases.** All 0.7.0 builds are RC-tagged, so this config enables *Include prereleases* — otherwise Obtainium pins you to 0.6.1 (March 2026) forever.
+Why not the fork? Its GitHub repo is only a release-distribution shell — the published branch is upstream code plus a funding file, with the actual MelonDualDS source unpublished. The fork still ships some exclusives (Vulkan renderer, per-ROM controller mapping) as RC-tagged prereleases, so it remains an option if you want those — but the official app is open source, actively maintained, and covers the dual-screen use case.
 
 Recommended settings on the Thor:
 
@@ -75,4 +74,31 @@ For the same reason, avoid bulk-import packs that re-add GitHub mirrors on every
 
 ## Cocoon platform configs
 
-Cocoon has no built-in Xbox 360 platform. `cocoon/xbox360-platform.json` adds one wired to X360 Mobile's launch activity (`emu.x360.mobile`), accepting `iso/xex/zar/zip/7z`. Import it from Cocoon's platform settings.
+Cocoon consumes Daijishō-style platform configs (`databaseVersion: 14`). The ones in `cocoon/` add platforms Cocoon doesn't ship with, each validated against the emulator's actual exported activities and intent extras:
+
+| Platform | Player | Launch mechanism |
+|---|---|---|
+| Xbox 360 | X360 Mobile | `VIEW` intent with `{file.uri}` — accepts `iso/xex/zar/zip/7z` |
+| PS Vita | Vita3K | `AppStartParameters` string-array extra: `-r <titleID>` |
+| PS Vita | EmuCoreV | `com.sbro.emucorev.action.LAUNCH` with `--es titleId <titleID>` |
+| PS3 | RPCSX | `rpcsx.intent.action.Emulator` with `--es path <game dir>` |
+
+Import each from Cocoon's platform settings.
+
+### `.dpt` stub files
+
+Vita and PS3 games aren't loose ROM files — they're installed inside the emulator. The ROM folder instead holds Daijishō Player Template stubs (one per game) whose tags get substituted into the launch intent:
+
+```
+# Daijishou Player Template
+[vita_game_id] PCSE00383
+```
+
+```
+# Daijishou Player Template
+[ps3_game_path] /storage/emulated/0/Android/data/net.rpcsx/files/config/games/BCUS98362
+```
+
+Vita title IDs come from the game's `param.sfo` (or a lookup tool like vitagameid); RPCSX game paths are listed in its `games.json` (`Android/data/net.rpcsx/files/games.json`).
+
+Note: RPCSX does not boot `.iso` files — PS3 games must be installed in RPCSX first (PKG or extracted disc folder), then referenced by path in the stub.
