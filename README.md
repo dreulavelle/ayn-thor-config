@@ -1,6 +1,6 @@
 # AYN Thor Config
 
-Obtainium and Cocoon configuration for the [AYN Thor](https://www.ayn.hk/products/thor), a dual-screen Android 13 handheld (Snapdragon 8 Gen 2).
+Obtainium and Cocoon configuration for the [AYN Thor](https://www.ayntec.com/products/ayn-thor), a dual-screen Android 13 handheld (Snapdragon 8 Gen 2).
 
 Sideloaded apps don't auto-update. [Obtainium](https://github.com/ImranR98/Obtainium) fixes that by tracking each app's own release page. This repo provides a curated Obtainium list for the Thor — emulators covering every major system the device handles plus the usual companion apps, each pointed at its canonical release source — and Cocoon platform configs for systems Cocoon doesn't ship with.
 
