@@ -446,7 +446,6 @@
     "hideAPKOriginWarning": true,
     "checkRepoRename": false,
     "groupByCategory": true,
-    "lastCompletedBGCheckTime": 1780542326373,
     "updateIntervalSliderVal": 8.15,
     "removeOnExternalUninstall": true,
     "checkUpdateOnDetailPage": true,
@@ -466,7 +465,6 @@
     "updateInterval": 1440,
     "useMaterialYou": true,
     "googleVerificationWarningShown": true,
-    "onlyCheckInstalledOrTrackOnlyApps": true,
-    "exportDir": "content://com.android.externalstorage.documents/tree/primary%3Abackups"
+    "onlyCheckInstalledOrTrackOnlyApps": true
   }
 }

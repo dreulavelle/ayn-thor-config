@@ -2,7 +2,7 @@
 
 Obtainium and Cocoon configuration for the [AYN Thor](https://www.ayn.hk/products/thor), a dual-screen Android 13 handheld (Snapdragon 8 Gen 2).
 
-Sideloaded apps don't auto-update. [Obtainium](https://github.com/ImranR98/Obtainium) fixes that by tracking each app's own release page. This repo keeps that setup in one place: every emulator and companion app on the device, each pointed at its canonical release source.
+Sideloaded apps don't auto-update. [Obtainium](https://github.com/ImranR98/Obtainium) fixes that by tracking each app's own release page. This repo provides a curated Obtainium list for the Thor — emulators covering every major system the device handles plus the usual companion apps, each pointed at its canonical release source — and Cocoon platform configs for systems Cocoon doesn't ship with.
 
 ## Contents
 
@@ -15,9 +15,13 @@ Sideloaded apps don't auto-update. [Obtainium](https://github.com/ImranR98/Obtai
 
 ## Import
 
-Obtainium → **Settings → Import/Export → Obtainium Import**, then pick the file (or paste the raw URL of `obtainium.json` from this repo).
+Obtainium → **Settings → Import/Export → Obtainium Import**, then paste the raw URL:
 
-Apps already on the device are recognized by package id; everything else shows as available to install.
+```
+https://raw.githubusercontent.com/dreulavelle/ayn-thor-config/main/obtainium.json
+```
+
+Apps already on your device are recognized by package id; everything else shows as available to install. Nothing installs without your confirmation, so import the full list and skip what you don't want.
 
 ## App list
 
@@ -47,15 +51,15 @@ Apps already on the device are recognized by package id; everything else shows a
 | [GameNative](https://github.com/utkarshdalal/GameNative) | PC games (Steam/Epic/GOG) | GitHub | |
 | [GameHub Lite](https://github.com/Producdevity/gamehub-lite) | PC games | GitHub | Upstream ships under the spoofed package id `com.antutu.ABenchMark` — that's intentional, not an error |
 | [Steam Shortcut Generator](https://github.com/NaviVani-dev/Steam-Shortcut-Generator) | Steam shortcuts for frontends | GitHub | |
-| [O2P Tweaks](https://github.com/FeralAI/o2ptweaks.app) | Device tweaks | GitHub | |
+| [O2P Tweaks](https://github.com/FeralAI/o2ptweaks.app) | AYN device tweaks | GitHub | Built for the Odin 2 line; runs on the Thor. Optional |
 | [AdrenoToolsDrivers](https://github.com/K11MCH1/AdrenoToolsDrivers) | GPU drivers | GitHub | Track-only: notifies of new Adreno driver releases, installed manually inside each emulator |
 | [Obtainium](https://github.com/ImranR98/Obtainium) | App updater | GitHub | Updates itself |
 
 ## melonDS on two screens
 
-Official [melonDS Android](https://github.com/rafaelvcaetano/melonDS-android) has supported dual-screen devices since 2.0.0 (April 2026), when rafaelvcaetano merged the dual-screen work from the [MelonDualDS fork](https://github.com/SapphireRhodonite/melonDS-android). The release notes credit the fork author; AYN supplied test devices. This config tracks the official app.
+For DS games on the Thor, use official [melonDS Android](https://github.com/rafaelvcaetano/melonDS-android) 2.0.0 or newer. Older guides point to the [MelonDualDS fork](https://github.com/SapphireRhodonite/melonDS-android) because the official app couldn't drive both screens — that changed in April 2026, when rafaelvcaetano merged the fork's dual-screen work into 2.0.0 (AYN supplied test devices). This config tracks the official app.
 
-The fork is harder to recommend now. Its GitHub repo is a release shell: the published branch is upstream code plus a funding file, and the MelonDualDS source itself is unpublished. It still ships two exclusives as RC-tagged prereleases — a Vulkan renderer and per-ROM controller mapping. If you need either, add it back; otherwise the official app handles both screens and publishes its source.
+The fork still exists and ships two exclusives as RC-tagged prereleases, a Vulkan renderer and per-ROM controller mapping, but its source is unpublished — the GitHub repo only distributes APKs. If you want those features, it installs alongside the official app under its own package id (`me.magnum.melondualds`).
 
 Recommended settings on the Thor:
 
@@ -68,7 +72,7 @@ Recommended settings on the Thor:
 
 ## Source durability
 
-Track DMCA-prone emulators (Switch especially) from the developer's own git host, never from a GitHub mirror. Eden points at `git.eden-emu.dev` (Forgejo); the GitHub releases mirror has a history of DMCA/451 takedowns and caused most of the breakage in earlier versions of this config.
+Track DMCA-prone emulators (Switch especially) from the developer's own git host, never from a GitHub mirror. Eden points at `git.eden-emu.dev` (Forgejo) because the GitHub releases mirror has a history of DMCA/451 takedowns — when a mirror dies, Obtainium silently stops updating that app.
 
 For the same reason, avoid bulk-import packs that re-add GitHub mirrors on every sync.
 
