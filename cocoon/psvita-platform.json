@@ -1,0 +1,42 @@
+{
+  "databaseVersion": 14,
+  "revisionNumber": 1,
+  "platform": {
+    "name": "Sony PlayStation Vita",
+    "uniqueId": "psvita",
+    "shortname": "psvita",
+    "description": null,
+    "acceptedFilenameRegex": "^(.*)\\.(?:dpt)$",
+    "scraperSourceList": [],
+    "boxArtAspectRatioId": 4,
+    "useCustomBoxArtAspectRatio": false,
+    "customBoxArtAspectRatio": null,
+    "screenAspectRatioId": 2,
+    "useCustomScreenAspectRatio": false,
+    "customScreenAspectRatio": null,
+    "retroAchievementsConsoleIdList": [],
+    "extra": ""
+  },
+  "playerList": [
+    {
+      "name": "Vita3K",
+      "uniqueId": "psvita.org.vita3k.emulator",
+      "description": "Vita3K - launches installed game by title ID",
+      "acceptedFilenameRegex": "^(.*)\\.(?:dpt)$",
+      "amStartArguments": "-n org.vita3k.emulator/org.vita3k.emulator.Emulator\n--esa AppStartParameters -r,{tags.vita_game_id}",
+      "killPackageProcesses": false,
+      "killPackageProcessesWarning": true,
+      "extra": ""
+    },
+    {
+      "name": "EmuCoreV",
+      "uniqueId": "psvita.com.sbro.emucorev",
+      "description": "EmuCoreV - install games into EmuCoreV first",
+      "acceptedFilenameRegex": "^(.*)\\.(?:dpt)$",
+      "amStartArguments": "-n com.sbro.emucorev/.core.vita.Emulator\n-a com.sbro.emucorev.action.LAUNCH\n--es titleId {tags.vita_game_id}",
+      "killPackageProcesses": false,
+      "killPackageProcessesWarning": true,
+      "extra": ""
+    }
+  ]
+}

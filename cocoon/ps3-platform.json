@@ -1,0 +1,32 @@
+{
+  "databaseVersion": 14,
+  "revisionNumber": 1,
+  "platform": {
+    "name": "Sony PlayStation 3",
+    "uniqueId": "ps3",
+    "shortname": "ps3",
+    "description": null,
+    "acceptedFilenameRegex": "^(.*)\\.(?:dpt)$",
+    "scraperSourceList": [],
+    "boxArtAspectRatioId": 4,
+    "useCustomBoxArtAspectRatio": false,
+    "customBoxArtAspectRatio": null,
+    "screenAspectRatioId": 2,
+    "useCustomScreenAspectRatio": false,
+    "customScreenAspectRatio": null,
+    "retroAchievementsConsoleIdList": [],
+    "extra": ""
+  },
+  "playerList": [
+    {
+      "name": "RPCSX",
+      "uniqueId": "ps3.net.rpcsx",
+      "description": "RPCSX - launches installed game by path from .dpt stub",
+      "acceptedFilenameRegex": "^(.*)\\.(?:dpt)$",
+      "amStartArguments": "-n net.rpcsx/net.rpcsx.RPCSXActivity\n-a rpcsx.intent.action.Emulator\n--es path {tags.ps3_game_path}",
+      "killPackageProcesses": false,
+      "killPackageProcessesWarning": true,
+      "extra": ""
+    }
+  ]
+}
