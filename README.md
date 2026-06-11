@@ -1,8 +1,8 @@
 # AYN Thor Config
 
-Obtainium and Cocoon configuration for the [AYN Thor](https://www.ayn.hk/products/thor) — a dual-screen Android 13 handheld (Snapdragon 8 Gen 2).
+Obtainium and Cocoon configuration for the [AYN Thor](https://www.ayn.hk/products/thor), a dual-screen Android 13 handheld (Snapdragon 8 Gen 2).
 
-Sideloaded apps don't auto-update. [Obtainium](https://github.com/ImranR98/Obtainium) fixes that by tracking each app's own release page. This repo is the version-controlled source of truth for that setup: every emulator and companion app on the device, each pointed at its canonical release source.
+Sideloaded apps don't auto-update. [Obtainium](https://github.com/ImranR98/Obtainium) fixes that by tracking each app's own release page. This repo keeps that setup in one place: every emulator and companion app on the device, each pointed at its canonical release source.
 
 ## Contents
 
@@ -31,7 +31,7 @@ Apps already on the device are recognized by package id; everything else shows a
 | [DuckStation](https://github.com/stenzek/duckstation) | PS1 | Mirror | Official Android APK isn't published on GitHub releases; tracked via community mirror |
 | [Eden](https://git.eden-emu.dev/eden-emu/eden) | Switch | Dev-hosted Forgejo | See [source durability](#source-durability) below. `optimized` build filtered for the Thor's SoC |
 | [EmuCoreV](https://github.com/sashkinbro/EmuCoreV) | PS Vita | GitHub | Custom UI over a Vita3K core; standard (non-parallel) build |
-| [melonDS](https://github.com/rafaelvcaetano/melonDS-android) | DS | GitHub | Native dual-screen support since 2.0.0 — see [notes](#melonds--ds-on-two-screens) below |
+| [melonDS](https://github.com/rafaelvcaetano/melonDS-android) | DS | GitHub | Native dual-screen support since 2.0.0; see [notes](#melonds-on-two-screens) below |
 | [NetherSX2 Classic](https://github.com/Trixarian/NetherSX2-classic) | PS2 | GitHub | AetherSX2 continuation |
 | [PPSSPP](https://www.ppsspp.org/download) | PSP | Official site | |
 | [RetroArch](https://buildbot.libretro.com/stable) | Multi | libretro buildbot | AArch64 build |
@@ -51,11 +51,11 @@ Apps already on the device are recognized by package id; everything else shows a
 | [AdrenoToolsDrivers](https://github.com/K11MCH1/AdrenoToolsDrivers) | GPU drivers | GitHub | Track-only: notifies of new Adreno driver releases, installed manually inside each emulator |
 | [Obtainium](https://github.com/ImranR98/Obtainium) | App updater | GitHub | Updates itself |
 
-## melonDS — DS on two screens
+## melonDS on two screens
 
-The official [melonDS Android](https://github.com/rafaelvcaetano/melonDS-android) app supports dual-screen devices natively since **2.0.0** (April 2026) — the dual-screen work from the community [MelonDualDS fork](https://github.com/SapphireRhodonite/melonDS-android) was upstreamed, with the fork author credited and AYN providing test devices. This config tracks the official app.
+Official [melonDS Android](https://github.com/rafaelvcaetano/melonDS-android) has supported dual-screen devices since 2.0.0 (April 2026), when rafaelvcaetano merged the dual-screen work from the [MelonDualDS fork](https://github.com/SapphireRhodonite/melonDS-android). The release notes credit the fork author; AYN supplied test devices. This config tracks the official app.
 
-Why not the fork? Its GitHub repo is only a release-distribution shell — the published branch is upstream code plus a funding file, with the actual MelonDualDS source unpublished. The fork still ships some exclusives (Vulkan renderer, per-ROM controller mapping) as RC-tagged prereleases, so it remains an option if you want those — but the official app is open source, actively maintained, and covers the dual-screen use case.
+The fork is harder to recommend now. Its GitHub repo is a release shell: the published branch is upstream code plus a funding file, and the MelonDualDS source itself is unpublished. It still ships two exclusives as RC-tagged prereleases — a Vulkan renderer and per-ROM controller mapping. If you need either, add it back; otherwise the official app handles both screens and publishes its source.
 
 Recommended settings on the Thor:
 
@@ -68,17 +68,17 @@ Recommended settings on the Thor:
 
 ## Source durability
 
-DMCA-prone emulators (Switch especially) should always be tracked from the developer's own git host, never a GitHub mirror. Eden is configured against `git.eden-emu.dev` (Forgejo) — its GitHub releases mirror has a history of DMCA/451 takedowns and was the main cause of breakage in earlier versions of this config.
+Track DMCA-prone emulators (Switch especially) from the developer's own git host, never from a GitHub mirror. Eden points at `git.eden-emu.dev` (Forgejo); the GitHub releases mirror has a history of DMCA/451 takedowns and caused most of the breakage in earlier versions of this config.
 
 For the same reason, avoid bulk-import packs that re-add GitHub mirrors on every sync.
 
 ## Cocoon platform configs
 
-Cocoon consumes Daijishō-style platform configs (`databaseVersion: 14`). The ones in `cocoon/` add platforms Cocoon doesn't ship with, each validated against the emulator's actual exported activities and intent extras:
+Cocoon consumes Daijishō-style platform configs (`databaseVersion: 14`). The ones in `cocoon/` add platforms Cocoon doesn't ship with, each validated against the emulator's exported activities and intent extras:
 
 | Platform | Player | Launch mechanism |
 |---|---|---|
-| Xbox 360 | X360 Mobile | `VIEW` intent with `{file.uri}` — accepts `iso/xex/zar/zip/7z` |
+| Xbox 360 | X360 Mobile | `VIEW` intent with `{file.uri}`; accepts `iso/xex/zar/zip/7z` |
 | PS Vita | Vita3K | `AppStartParameters` string-array extra: `-r <titleID>` |
 | PS Vita | EmuCoreV | `com.sbro.emucorev.action.LAUNCH` with `--es titleId <titleID>` |
 | PS3 | RPCSX | `rpcsx.intent.action.Emulator` with `--es path <game dir>` |
@@ -101,4 +101,4 @@ Vita and PS3 games aren't loose ROM files — they're installed inside the emula
 
 Vita title IDs come from the game's `param.sfo` (or a lookup tool like vitagameid); RPCSX game paths are listed in its `games.json` (`Android/data/net.rpcsx/files/games.json`).
 
-Note: RPCSX does not boot `.iso` files — PS3 games must be installed in RPCSX first (PKG or extracted disc folder), then referenced by path in the stub.
+Note: RPCSX does not boot `.iso` files. Install the game in RPCSX first (PKG or extracted disc folder), then point the stub at the installed path.
