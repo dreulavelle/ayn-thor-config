@@ -435,6 +435,28 @@
       "overrideSource": "GitHub",
       "allowIdChange": false,
       "pendingRepoRenameUrl": null
+    },
+    {
+      "id": "com.nendo.argosy",
+      "url": "https://github.com/rommapp/argosy-launcher",
+      "author": "rommapp",
+      "name": "Argosy Launcher",
+      "installedVersion": "v1.10.7",
+      "latestVersion": "v1.10.7",
+      "apkUrls": "[[\"argosy-v1.10.7-arm64.apk\",\"https://github.com/rommapp/argosy-launcher/releases/download/v1.10.7/argosy-v1.10.7-arm64.apk\"]]",
+      "otherAssetUrls": "[]",
+      "preferredApkIndex": 0,
+      "additionalSettings": "{\"includePrereleases\":false,\"fallbackToOlderReleases\":true,\"filterReleaseTitlesByRegEx\":\"\",\"filterReleaseNotesByRegEx\":\"\",\"verifyLatestTag\":false,\"sortMethodChoice\":\"date\",\"useLatestAssetDateAsReleaseDate\":false,\"releaseTitleAsVersion\":false,\"trackOnly\":false,\"versionExtractionRegEx\":\"\",\"matchGroupToUse\":\"\",\"versionDetection\":true,\"releaseDateAsVersion\":false,\"useVersionCodeAsOSVersion\":false,\"apkFilterRegEx\":\"arm64\",\"invertAPKFilter\":false,\"autoApkFilterByArch\":true,\"appName\":\"Argosy Launcher\",\"appAuthor\":\"rommapp\",\"shizukuPretendToBeGooglePlay\":false,\"allowInsecure\":false,\"exemptFromBackgroundUpdates\":false,\"skipUpdateNotifications\":false,\"about\":\"Android launcher frontend for RomM - browse, download, and launch games from a self-hosted RomM server\",\"refreshBeforeDownload\":false,\"includeZips\":false,\"zippedApkFilterRegEx\":\"\"}",
+      "lastUpdateCheck": null,
+      "pinned": false,
+      "categories": [
+        "Frontend"
+      ],
+      "releaseDate": null,
+      "changeLog": null,
+      "overrideSource": "GitHub",
+      "allowIdChange": false,
+      "pendingRepoRenameUrl": null
     }
   ],
   "settings": {

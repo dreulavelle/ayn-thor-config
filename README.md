@@ -48,6 +48,7 @@ Apps already on your device are recognized by package id; everything else shows 
 | App | Role | Source | Notes |
 |---|---|---|---|
 | [Cocoon](https://github.com/inssekt/CocoonFE) | Dual-screen launcher | GitHub | [cocoon-shell.com](https://cocoon-shell.com/) |
+| [Argosy Launcher](https://github.com/rommapp/argosy-launcher) | RomM client launcher | GitHub | Browses and downloads games from a self-hosted [RomM](https://github.com/rommapp/romm) server, then launches them in local emulators |
 | [GameNative](https://github.com/utkarshdalal/GameNative) | PC games (Steam/Epic/GOG) | GitHub | |
 | [GameHub Lite](https://github.com/Producdevity/gamehub-lite) | PC games | GitHub | Upstream ships under the spoofed package id `com.antutu.ABenchMark` — that's intentional, not an error |
 | [Steam Shortcut Generator](https://github.com/NaviVani-dev/Steam-Shortcut-Generator) | Steam shortcuts for frontends | GitHub | |
